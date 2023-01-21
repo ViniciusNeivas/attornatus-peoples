@@ -7,8 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "tb_peoples")
@@ -18,11 +17,11 @@ public class People {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(nullable = false)
+	@Column(name = "nome", nullable = false)
 	private String nome;
 	
-	@Column(nullable = false)
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@Column(name = "DataDeNascimento")
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataDeNascimento;
 	
 

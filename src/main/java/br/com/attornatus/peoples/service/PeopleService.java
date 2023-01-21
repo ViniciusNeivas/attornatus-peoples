@@ -15,20 +15,19 @@ public class PeopleService {
 	@Autowired
 	private PeopleRepository peopleRepository;
 	
-	public People save(People people) {
+	public People savePeople(People people) {
 		return peopleRepository.save(people);
 	}
 	
-	public List<People> listPeople(){
+	public List<People> listPeople() {
 		return peopleRepository.findAll();
 	}
 	
-	public Optional<People> findId (Long id){
+	public Optional<People> findPeopleById (Long id){
 		return peopleRepository.findById(id);
 	}
 	
-	public void removeId(Long id) {
+	public void removePeopleById(Long id) {
 		peopleRepository.deleteById(id);
 	}
-
 }
