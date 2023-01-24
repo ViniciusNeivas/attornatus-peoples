@@ -1,11 +1,8 @@
 package br.com.attornatus.peoples.service;
-
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import br.com.attornatus.peoples.model.People;
 import br.com.attornatus.peoples.repository.PeopleRepository;
 
@@ -25,6 +22,10 @@ public class PeopleService {
 	
 	public Optional<People> findPeopleById (Long id){
 		return peopleRepository.findById(id);
+	}
+	
+	public List<People> findPeopleByNome (String nome){
+		return peopleRepository.findAllByNomeContainingIgnoreCase(nome);
 	}
 	
 	public void removePeopleById(Long id) {
